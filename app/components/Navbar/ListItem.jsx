@@ -4,8 +4,9 @@ import {
   LuLayoutDashboard as Dashboard,
   LuBook as Books,
   LuUsers as Users,
+  LuBookCopy,
 } from "react-icons/lu";
-import { GrTransaction as Transaction } from "react-icons/gr";
+import { VscLibrary } from "react-icons/vsc";
 import { usePathname } from "next/navigation";
 
 const listRoutes = [
@@ -17,12 +18,12 @@ const listRoutes = [
   {
     title: "Transaction",
     path: "/transaction",
-    icon: <Transaction />,
+    icon: <LuBookCopy />,
   },
   {
     title: "Books",
     path: "/books",
-    icon: <Books />,
+    icon: <VscLibrary />,
   },
   {
     title: "Users",
@@ -41,7 +42,7 @@ const ListItem = () => {
           key={i}
           className={
             pathname == data.path
-              ? "border-b-2 border-slate-900 -translate-y-1 transition-all"
+              ? "border-b-2 border-slate-900 dark:border-slate-200 -translate-y-1 transition-all"
               : "hover:-translate-y-1 transition-all"
           }
         >
@@ -68,7 +69,7 @@ export const ListItemsDeks = () => {
           key={i}
           className={
             pathname == data.path
-              ? "border-b-2 border-slate-900 -translate-y-1 transition-all cursor-pointer"
+              ? "border-b-2 border-slate-900 dark:border-slate-200 -translate-y-1 transition-all cursor-pointer"
               : "hover:-translate-y-1 transition-all cursor-pointer"
           }
         >

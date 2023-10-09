@@ -6,7 +6,7 @@ const Avatar = () => {
       src={"/avatar.jpg"}
       width="38"
       height="38"
-      className="rounded-full shadow border-2 border-slate-900/10 hover:-translate-y-1 transition-all cursor-pointer"
+      className="rounded-full ring-4 ring-slate-900/10 dark:ring-slate-200/10 cursor-pointer"
     />
   );
 };
