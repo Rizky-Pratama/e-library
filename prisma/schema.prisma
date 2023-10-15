@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Buku {
+  id           Int          @id @default(autoincrement())
+  judul        String
+  penulis      String?
+  kategoriId   Int
+  penerbit     String?
+  stok         Int
+  tahun_terbit Int?
+  kategori     Kategori     @relation(fields: [kategoriId], references: [id])
+  Peminjaman   Peminjaman[]
+
+  @@index([kategoriId])
+}
+
+model Anggota {
+  id            Int          @id @default(autoincrement())
+  nama          String
+  alamat        String?
+  nomor_telepon BigInt
+  email         String
+  peminjaman    Peminjaman[]
+}
+
+model Peminjaman {
+  id                   Int              @id @default(autoincrement())
+  bukuId               Int
+  anggotaId            Int
+  tanggal_peminjaman   DateTime
+  tanggal_pengembalian DateTime
+  status               StatusPeminjaman
+  catatan              String?
+  petugasId            Int
+  buku                 Buku             @relation(fields: [bukuId], references: [id])
+  anggota              Anggota          @relation(fields: [anggotaId], references: [id])
+  petugas              Staff            @relation(fields: [petugasId], references: [id])
+
+  @@index([bukuId])
+  @@index([anggotaId])
+  @@index([petugasId])
+}
+
+model Kategori {
+  id            Int    @id @default(autoincrement())
+  nama_kategori String
+  buku          Buku[]
+}
+
+model Staff {
+  id            Int          @id @default(autoincrement())
+  nama          String
+  username      String
+  password      String
+  email         String
+  nomor_telepon BigInt?
+  peran         Peran
+  Peminjaman    Peminjaman[]
+}
+
+enum StatusPeminjaman {
+  Dipinjam
+  Terlambat
+  Dikembalikan
+}
+
+enum Peran {
+  Admin
+  Petugas
+}
