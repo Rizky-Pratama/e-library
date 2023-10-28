@@ -9,10 +9,10 @@ import {
 import { VscLibrary } from "react-icons/vsc";
 import { usePathname } from "next/navigation";
 
-const listRoutes = [
+export const listRoutes = [
   {
     title: "Dashboard",
-    path: "/",
+    path: "/dashboard",
     icon: <Dashboard />,
   },
   {
