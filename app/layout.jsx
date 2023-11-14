@@ -1,7 +1,8 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-
 const inter = Inter({ subsets: ["latin"] });
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
   title: "Perpustakaan-Ku",
@@ -17,6 +18,18 @@ export default function RootLayout({ children }) {
           " bg-slate-100 text-slate-950 dark:bg-slate-900 dark:text-slate-200 transition-colors"
         }
       >
+        <ToastContainer
+          position="top-right"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
         {children}
       </body>
     </html>

@@ -26,7 +26,7 @@ model Anggota {
   id            Int          @id @default(autoincrement())
   nama          String
   alamat        String?
-  nomor_telepon BigInt
+  nomor_telepon String?     @db.Char(14)
   email         String
   peminjaman    Peminjaman[]
 }
@@ -61,7 +61,7 @@ model Staff {
   username      String       @unique
   password      String
   email         String
-  nomor_telepon BigInt?
+  nomor_telepon String?     @db.Char(14)
   peran         Peran
   Peminjaman    Peminjaman[]
 }

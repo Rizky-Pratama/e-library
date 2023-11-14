@@ -1,0 +1,62 @@
+[
+  {
+    "nama": "Ripki",
+    "alamat": "Jl. Pahlawan",
+    "nomor_telepon": 8123456789,
+    "email": "kfwfbc@gmail.com"
+  },
+  {
+    "nama": "Siti",
+    "alamat": "Jl. Merdeka",
+    "nomor_telepon": 8234567890,
+    "email": "siti@gmail.com"
+  },
+  {
+    "nama": "Budi",
+    "alamat": "Jl. Sudirman",
+    "nomor_telepon": 8345678901,
+    "email": "budi@gmail.com"
+  },
+  {
+    "nama": "Dewi",
+    "alamat": "Jl. Gajah Mada",
+    "nomor_telepon": 8456789012,
+    "email": "dewi@gmail.com"
+  },
+  {
+    "nama": "Ahmad",
+    "alamat": "Jl. Diponegoro",
+    "nomor_telepon": 8567890123,
+    "email": "ahmad@gmail.com"
+  },
+  {
+    "nama": "Rina",
+    "alamat": "Jl. Imam Bonjol",
+    "nomor_telepon": 8678901234,
+    "email": "rina@gmail.com"
+  },
+  {
+    "nama": "Fajar",
+    "alamat": "Jl. Ahmad Yani",
+    "nomor_telepon": 8789012345,
+    "email": "fajar@gmail.com"
+  },
+  {
+    "nama": "Lia",
+    "alamat": "Jl. Thamrin",
+    "nomor_telepon": 8890123456,
+    "email": "lia@gmail.com"
+  },
+  {
+    "nama": "Rudi",
+    "alamat": "Jl. Asia Afrika",
+    "nomor_telepon": 8901234567,
+    "email": "rudi@gmail.com"
+  },
+  {
+    "nama": "Sinta",
+    "alamat": "Jl. Gatot Subroto",
+    "nomor_telepon": 9012345678,
+    "email": "sinta@gmail.com"
+  }
+]

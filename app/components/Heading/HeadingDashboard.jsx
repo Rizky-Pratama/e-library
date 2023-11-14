@@ -7,7 +7,7 @@ const HeadingDashboard = () => {
   const result = listRoutes.find(({ path }) => path === pathName);
   return (
     <h1 className="my-5 text-2xl font-medium text-slate-600 dark:text-slate-300">
-      {result.title}
+      {result?.title}
     </h1>
   );
 }
