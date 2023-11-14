@@ -26,7 +26,7 @@ model Anggota {
   id            Int          @id @default(autoincrement())
   nama          String
   alamat        String?
-  nomor_telepon BigInt
+  nomor_telepon String?     @db.Char(14)
   email         String
   peminjaman    Peminjaman[]
 }
@@ -39,14 +39,14 @@ model Peminjaman {
   tanggal_pengembalian DateTime
   status               StatusPeminjaman
   catatan              String?
-  petugasId            Int
+  stafId               Int
   buku                 Buku             @relation(fields: [bukuId], references: [id])
   anggota              Anggota          @relation(fields: [anggotaId], references: [id])
-  petugas              Staff            @relation(fields: [petugasId], references: [id])
+  staf                 Staff            @relation(fields: [stafId], references: [id])
 
   @@index([bukuId])
   @@index([anggotaId])
-  @@index([petugasId])
+  @@index([stafId])
 }
 
 model Kategori {
@@ -58,10 +58,10 @@ model Kategori {
 model Staff {
   id            Int          @id @default(autoincrement())
   nama          String
-  username      String
+  username      String       @unique
   password      String
   email         String
-  nomor_telepon BigInt?
+  nomor_telepon String?     @db.Char(14)
   peran         Peran
   Peminjaman    Peminjaman[]
 }

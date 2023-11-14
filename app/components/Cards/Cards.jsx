@@ -1,26 +1,32 @@
 import { LuBookMarked, LuBookmarkPlus } from "react-icons/lu";
 import { TbUserStar } from "react-icons/tb";
 import Card from "./Card";
+import { getCountBuku } from "@/app/utils/dbUtils/buku";
+import { getCountAnggota } from "@/app/utils/dbUtils/anggota";
+import { getCountPeminjaman } from "@/app/utils/dbUtils/peminjaman";
 
-const Cards = () => {
+const Cards = async () => {
+  const countBuku = await getCountBuku();
+  const countAnggota = await getCountAnggota();
+  const countPeminjaman = await getCountPeminjaman();
   return (
     <div className="flex flex-wrap gap-4">
       <Card
         color={"green"}
         title={"Total Buku"}
-        text={80}
+        text={countBuku}
         icon={<LuBookMarked />}
       />
       <Card
         color={"yellow"}
         title={"Anggota"}
-        text={879}
+        text={countAnggota}
         icon={<TbUserStar />}
       />
       <Card
         color={"blue"}
         title={"Pinjaman Aktif"}
-        text={343}
+        text={countPeminjaman}
         icon={<LuBookmarkPlus />}
       />
     </div>

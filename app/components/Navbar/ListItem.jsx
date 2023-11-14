@@ -1,34 +1,45 @@
 "use client";
 import Link from "next/link";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import {
   LuLayoutDashboard as Dashboard,
-  LuBook as Books,
   LuUsers as Users,
+  LuBookMarked,
   LuBookCopy,
 } from "react-icons/lu";
 import { VscLibrary } from "react-icons/vsc";
 import { usePathname } from "next/navigation";
 
-const listRoutes = [
+export const listRoutes = [
   {
     title: "Dashboard",
-    path: "/",
+    path: "/dashboard",
     icon: <Dashboard />,
   },
   {
     title: "Transaction",
-    path: "/transaction",
+    path: "/dashboard/transaction",
     icon: <LuBookCopy />,
   },
   {
     title: "Books",
-    path: "/books",
+    path: "/dashboard/books",
     icon: <VscLibrary />,
   },
   {
+    title: "Category",
+    path: "/dashboard/category",
+    icon: <LuBookMarked />,
+  },
+  {
     title: "Users",
-    path: "/users",
+    path: "/dashboard/users",
     icon: <Users />,
+  },
+  {
+    title: "Staff",
+    path: "/dashboard/staff",
+    icon: <MdOutlineAdminPanelSettings />,
   },
 ];
 
@@ -54,7 +65,7 @@ const ListItems = ({ device }) => {
         <li
           key={i}
           className={
-            pathname == data.path
+            pathname === data.path
               ? "border-b-2 border-slate-950 dark:border-slate-200 -translate-y-1 transition-all cursor-pointer"
               : "hover:-translate-y-1 transition-all cursor-pointer"
           }
