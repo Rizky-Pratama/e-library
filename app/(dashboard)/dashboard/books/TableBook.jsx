@@ -1,5 +1,5 @@
 import ButtonDelete from "@/app/components/Buttons/Button";
-import Link from "next/link";
+// import Link from "next/link";
 
 const header = [
   "Id",
@@ -19,7 +19,7 @@ export default async function TableBook() {
   }).then((res) => res.json());
 
   const body = res.data;
-  
+
   return (
     <table className="w-full text-sm text-left text-slate-500 dark:text-slate-400 shadow-lg">
       <thead className="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400">
@@ -54,12 +54,12 @@ export default async function TableBook() {
               <td className="px-6 py-4">{stok}</td>
               <td className="px-6 py-4">{tahun_terbit}</td>
               <td className="px-6 py-4 space-x-2">
-                <Link
+                {/* <Link
                   href={"edit/book/" + id}
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
                   Edit
-                </Link>
+                </Link> */}
                 <ButtonDelete id={id} api="buku">
                   Hapus
                 </ButtonDelete>

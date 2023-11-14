@@ -40,12 +40,12 @@ export default async function TableCategory() {
             </th>
             <td className="px-6 py-4">{nama_kategori}</td>
             <td className="px-6 py-4 space-x-2">
-              <Link
+              {/* <Link
                 href={"edit/category/" + id}
                 className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
               >
                 Edit
-              </Link>
+              </Link> */}
               <ButtonDelete id={id} api="kategori">
                 Hapus
               </ButtonDelete>
