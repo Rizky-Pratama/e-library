@@ -41,12 +41,12 @@ export default async function TableUser() {
             <td className="px-6 py-4">{nomor_telepon}</td>
             <td className="px-6 py-4">{email}</td>
             <td className="px-6 py-4 space-x-2">
-              <Link
+              {/* <Link
                 href={"edit/user/" + id}
                 className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
               >
                 Edit
-              </Link>
+              </Link> */}
               <ButtonDelete id={id} api="anggota">
                 Hapus
               </ButtonDelete>

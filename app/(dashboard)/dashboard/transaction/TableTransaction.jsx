@@ -1,5 +1,4 @@
 import ButtonDelete from "@/app/components/Buttons/Button";
-import Link from "next/link";
 
 const header = [
   "Id",
@@ -95,12 +94,12 @@ export default async function TableTransaction() {
               </td>
               <td className="px-6 py-4">{staf.username}</td>
               <td className="px-6 py-4 space-x-2">
-                <Link
+                {/* <Link
                   href={"edit/transaction/" + id}
                   className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                 >
                   Edit
-                </Link>
+                </Link> */}
                 <ButtonDelete id={id} api="peminjaman">Hapus</ButtonDelete>
               </td>
             </tr>
