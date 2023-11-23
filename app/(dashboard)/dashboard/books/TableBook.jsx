@@ -12,10 +12,10 @@ const header = [
 ];
 export default async function TableBook() {
   const res = await fetch("http://localhost:3000/api/buku", {
-    // cache: "no-store",
-    // next: {
-    //   tags: ["buku"],
-    // },
+    cache: "no-store",
+    next: {
+      tags: ["buku"],
+    },
   }).then((res) => res.json());
 
   const body = res.data;
