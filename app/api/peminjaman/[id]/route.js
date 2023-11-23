@@ -1,4 +1,5 @@
 import prisma from "@/app/lib/prisma";
+import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
@@ -40,10 +41,9 @@ export async function GET(request, { params }) {
       { status: 500 }
     );
   }
-
 }
 
-export async function DELETE(request,{params}) {
+export async function DELETE(request, { params }) {
   try {
     const { id } = params;
 
@@ -80,6 +80,8 @@ export async function DELETE(request,{params}) {
         id: parseInt(id),
       },
     });
+
+    revalidateTag("peminjaman");
 
     return new NextResponse(
       JSON.stringify({

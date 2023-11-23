@@ -2,9 +2,9 @@ const header = ["Id", "Nama", "Username", "Email", "No Telepon", "Peran"];
 
 export default async function TableStaff() {
   const res = await fetch("http://localhost:3000/api/staff", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
+    cache: "no-store",
+    next: {
+      tags: ["staff"],
     },
   }).then((res) => res.json());
 

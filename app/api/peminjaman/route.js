@@ -62,6 +62,7 @@ export async function POST(request) {
     updateBuku;
 
     revalidateTag("peminjaman");
+    
     return new NextResponse(
       JSON.stringify({
         success: true,

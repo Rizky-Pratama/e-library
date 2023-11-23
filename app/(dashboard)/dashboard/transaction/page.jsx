@@ -2,6 +2,8 @@ import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import TableTransaction from "./TableTransaction";
+import { Suspense } from "react";
+import Loading from "@/app/components/Loading";
 
 const page = () => {
   return (
@@ -32,7 +34,9 @@ const page = () => {
             Tambah
           </Link>
         </div>
-        <TableTransaction/>
+        <Suspense fallback={<Loading />}>
+          <TableTransaction />
+        </Suspense>
       </div>
     </>
   );

@@ -1,3 +1,5 @@
+import prisma from "@/app/lib/prisma";
+import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
@@ -34,39 +36,6 @@ export async function GET(request, { params }) {
   }
 }
 
-export async function PUT(request, { params }) {
-  try {
-    const { id } = params;
-    const formData = await request.formData();
-    const data = Object.fromEntries(formData);
-
-    const update = await prisma.Buku.update({
-      where: {
-        id: parseInt(id),
-      },
-      data: {
-        // ...data,
-        stok: parseInt(data.stok),
-        // kategoriId: parseInt(data.kategoriId),
-        // "tahun_terbit": parseInt(data.tahun_terbit),
-      },
-    });
-
-    return new NextResponse(
-      JSON.stringify({
-        messages: "yeyyyy",
-        data: update,
-      }),
-      { status: 200 }
-    );
-  } catch (error) {
-    return new NextResponse(
-      JSON.stringify({ message: "Terjadi kesalahan " + error }),
-      { status: 500 }
-    );
-  }
-}
-
 export async function DELETE(request, { params }) {
   try {
     const { id } = params;
@@ -91,6 +60,8 @@ export async function DELETE(request, { params }) {
         id: parseInt(id),
       },
     });
+
+    revalidateTag("buku");
 
     return new NextResponse(
       JSON.stringify({

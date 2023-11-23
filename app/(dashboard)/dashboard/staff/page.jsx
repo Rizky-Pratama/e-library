@@ -2,6 +2,8 @@ import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import TableStaff from "./TableStaff";
+import { Suspense } from "react";
+import Loading from "@/app/components/Loading";
 
 const Page = () => {
   return (
@@ -32,7 +34,9 @@ const Page = () => {
             Tambah
           </Link>
         </div>
-        <TableStaff/>
+        <Suspense fallback={<Loading />}>
+          <TableStaff />
+        </Suspense>
       </div>
     </>
   );

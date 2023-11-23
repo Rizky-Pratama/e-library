@@ -1,4 +1,5 @@
 import prisma from "@/app/lib/prisma";
+import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
@@ -72,6 +73,8 @@ export async function DELETE(request, { params }) {
         { status: 404 }
       );
     }
+
+    revalidateTag("kategori");
 
     return new NextResponse(
       JSON.stringify({

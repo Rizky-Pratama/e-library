@@ -12,9 +12,9 @@ const header = [
 ];
 export default async function TableBook() {
   const res = await fetch("http://localhost:3000/api/buku", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
+    cache: "no-store",
+    next: {
+      tags: ["buku"],
     },
   }).then((res) => res.json());
 
