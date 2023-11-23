@@ -2,6 +2,8 @@ import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import TableBook from "./TableBook";
+import { Suspense } from "react";
+import Loading from "@/app/components/Loading";
 
 const Page = async () => {
   return (
@@ -32,7 +34,9 @@ const Page = async () => {
             Tambah
           </Link>
         </div>
-        <TableBook/>
+        <Suspense fallback={<Loading/>}>
+          <TableBook />
+        </Suspense>
       </div>
     </>
   );

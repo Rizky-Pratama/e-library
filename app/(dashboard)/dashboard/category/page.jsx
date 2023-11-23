@@ -1,8 +1,9 @@
-import Table from "@/app/components/Tables/Table";
 import Link from "next/link";
 import { BiSearch } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import TableCategory from "./TableCategory";
+import { Suspense } from "react";
+import Loading from "@/app/components/Loading";
 
 const Page = () => {
   return (
@@ -32,7 +33,9 @@ const Page = () => {
           Tambah
         </Link>
       </div>
-      <TableCategory />
+      <Suspense fallback={<Loading />}>
+        <TableCategory />
+      </Suspense>
     </div>
   );
 };

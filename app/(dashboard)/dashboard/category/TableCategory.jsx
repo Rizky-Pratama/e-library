@@ -1,14 +1,11 @@
 import ButtonDelete from "@/app/components/Buttons/Button";
-import Link from "next/link";
+// import Link from "next/link";
 
 const header = ["Id", "Nama"];
 
 export default async function TableCategory() {
   const res = await fetch("http://localhost:3000/api/kategori", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    cache: "no-store",
     next:{
       tags: ["kategori"]
     }

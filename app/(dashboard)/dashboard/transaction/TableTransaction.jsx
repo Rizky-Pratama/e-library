@@ -13,10 +13,7 @@ const header = [
 
 export default async function TableTransaction() {
   const res = await fetch("http://localhost:3000/api/peminjaman", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    cache: "no-store",
     next:{
       tags: ["peminjaman"],
     }

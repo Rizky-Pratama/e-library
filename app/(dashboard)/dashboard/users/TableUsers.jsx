@@ -5,10 +5,10 @@ const header = ["Id", "Nama", "Alamat", "No Telepon", "Email"];
 
 export default async function TableUser() {
   const res = await fetch("http://localhost:3000/api/anggota", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    cache: "no-store",
+    next:{
+      tags: ["anggota"]
+    }
   }).then((res) => res.json());
 
   const body = res.data;
