@@ -1,3 +1,5 @@
+import prisma from "@/app/lib/prisma";
+import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -38,6 +40,8 @@ export async function POST(request) {
       },
     });
 
+    revalidateTag("buku");
+
     return new NextResponse(
       JSON.stringify({
         success: true,
@@ -52,4 +56,4 @@ export async function POST(request) {
       { status: 500 }
     );
   }
-}
+};

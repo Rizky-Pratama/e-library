@@ -1,4 +1,5 @@
 import prisma from "@/app/lib/prisma";
+import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function GET() {
@@ -28,6 +29,8 @@ export async function POST(request) {
         email: body.email,
       },
     });
+
+    revalidateTag("anggota");
 
     return new NextResponse(
       JSON.stringify({

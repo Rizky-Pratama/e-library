@@ -23,7 +23,6 @@ export async function GET() {
 
 export async function POST(request) {
   try {
-    const tag = request.nextUrl.searchParams.get("tag");
     const { nama_kategori } = await request.json();
     
     const data = await prisma.Kategori.create({
@@ -32,8 +31,8 @@ export async function POST(request) {
       },
     });
     
-    revalidateTag(tag);
-    console.log("data", tag);
+    revalidateTag("kategori");
+
     return new NextResponse(
       JSON.stringify({
         success: true,

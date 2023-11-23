@@ -1,6 +1,7 @@
 import prisma from "@/app/lib/prisma";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
+import { revalidateTag } from "next/cache";
 
 export async function GET() {
   try {
@@ -53,6 +54,8 @@ export async function POST(request) {
         peran,
       },
     });
+
+    revalidateTag("staff");
 
     return new NextResponse(
       JSON.stringify({
