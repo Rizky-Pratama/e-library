@@ -32,8 +32,7 @@ export const Form = ({ dataInput }) => {
       datas[pair[0]] = pair[1];
     }
 
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/peminjaman`,
+    const res = await fetch(`/api/peminjaman`,
       {
         method: "POST",
         body: JSON.stringify(datas),
@@ -43,7 +42,6 @@ export const Form = ({ dataInput }) => {
       }
     );
     const data = await res.json();
-    console.log(data);
     setIsLoding(false);
     notify(data.message);
   }

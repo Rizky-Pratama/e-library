@@ -37,15 +37,12 @@ const ButtonDelete = (props) => {
   };
 
   const deleteData = async (idP) => {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/${api}/${idP}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    ).then((res) => res.json());
+    const res = await fetch(`/api/${api}/${idP}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
 
     if (res.success) {
       notify("success", res.message);

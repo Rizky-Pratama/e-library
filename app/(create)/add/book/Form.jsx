@@ -46,7 +46,7 @@ export const Form = ({ dataInput }) => {
       datas[pair[0]] = pair[1];
     }
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/buku`, {
+    const res = await fetch(`/api/buku`, {
       method: "POST",
       body: JSON.stringify(datas),
       headers: {

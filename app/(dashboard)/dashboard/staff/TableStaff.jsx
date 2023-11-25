@@ -5,7 +5,14 @@ export default async function TableStaff() {
     next: {
       tags: ["staff"],
     },
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err.message);
+      return {
+        data: [],
+      };
+    });
 
   const body = res.data;
   return (

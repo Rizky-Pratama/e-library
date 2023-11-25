@@ -15,9 +15,16 @@ export default async function TableBook() {
     next: {
       tags: ["buku", "peminjaman"],
     },
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err.message);
+      return {
+        data: [],
+      };
+    });
 
-  const body = res.data;
+  const body = res?.data;
 
   return (
     <table className="w-full text-sm text-left text-slate-500 dark:text-slate-400 shadow-lg">
