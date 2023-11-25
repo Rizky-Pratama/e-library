@@ -18,7 +18,12 @@ const Page = async () => {
     .then((res) => res.json())
     .then((data) => {
       return data.data;
+    })
+    .catch((err) => {
+      console.log(err);
+      return null;
     });
+    
   const dataInputAnggota = await getAllNamaAnggota();
   const dataInputStaff = await getUserFromCookie();
 
