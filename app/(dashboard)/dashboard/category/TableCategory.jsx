@@ -8,9 +8,16 @@ export default async function TableCategory() {
     next: {
       tags: ["kategori"],
     },
-  }).then((res) => res.json());
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err.message);
+      return {
+        data: [],
+      };
+    });
 
-  const body = res.data;
+  const body = res?.data;
   return (
     <table className="w-full text-sm text-left text-slate-500 dark:text-slate-400 shadow-lg">
       <thead className="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400">

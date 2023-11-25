@@ -16,9 +16,16 @@ export default async function TableTransaction() {
     next: {
       tags: ["peminjaman"],
     },
-  }).then((res) => res.json());
-  const body = res.data;
-  
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      console.log(err.message);
+      return {
+        data: [],
+      };
+    });
+  const body = res?.data;
+
   const option = {
     weekday: "long",
     year: "numeric",
@@ -41,7 +48,7 @@ export default async function TableTransaction() {
         </tr>
       </thead>
       <tbody className="divide-y dark:divide-slate-700">
-        {!body  && (
+        {!body && (
           <tr className="bg-white dark:bg-slate-800">
             <td
               colSpan={header.length + 1}
@@ -51,7 +58,7 @@ export default async function TableTransaction() {
             </td>
           </tr>
         )}
-        {body.length === 0  && (
+        {body.length === 0 && (
           <tr className="bg-white dark:bg-slate-800">
             <td
               colSpan={header.length + 1}

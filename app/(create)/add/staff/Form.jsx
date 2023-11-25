@@ -45,7 +45,7 @@ export const Form = () => {
       datas[pair[0]] = pair[1];
     }
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/staff`, {
+    const res = await fetch(`/api/staff`, {
       method: "POST",
       body: JSON.stringify(datas),
       headers: {
@@ -55,7 +55,6 @@ export const Form = () => {
 
     const data = await res.json();
     setIsLoding(false);
-    console.log(data);
 
     if (data.success) {
       notify("success", data.message);
