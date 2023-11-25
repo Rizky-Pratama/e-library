@@ -1,8 +1,7 @@
 const header = ["Id", "Nama", "Username", "Email", "No Telepon", "Peran"];
 
 export default async function TableStaff() {
-  const res = await fetch("http://localhost:3000/api/staff", {
-    cache: "no-store",
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/staff`, {
     next: {
       tags: ["staff"],
     },
@@ -21,7 +20,17 @@ export default async function TableStaff() {
         </tr>
       </thead>
       <tbody className="divide-y dark:divide-slate-700">
-        {body?.length === 0 && (
+        {!body && (
+          <tr className="bg-white dark:bg-slate-800">
+            <td
+              colSpan={header.length + 1}
+              className="py-4 text-center whitespace-nowrap dark:text-white"
+            >
+              Tidak ada data
+            </td>
+          </tr>
+        )}
+        {body.length === 0 && (
           <tr className="bg-white dark:bg-slate-800">
             <td
               colSpan={header.length + 1}

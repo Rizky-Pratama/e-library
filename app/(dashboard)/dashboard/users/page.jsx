@@ -5,6 +5,10 @@ import TableUser from "./TableUsers";
 import { Suspense } from "react";
 import Loading from "@/app/components/Loading";
 
+export const dynamic = "auto";
+export const revalidate = false;
+export const fetchCache = "force-cache";
+
 const Page = () => {
   return (
     <>

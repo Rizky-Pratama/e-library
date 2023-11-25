@@ -1,14 +1,13 @@
 import ButtonDelete from "@/app/components/Buttons/Button";
-import Link from "next/link";
+// import Link from "next/link";
 
 const header = ["Id", "Nama", "Alamat", "No Telepon", "Email"];
 
 export default async function TableUser() {
-  const res = await fetch("http://localhost:3000/api/anggota", {
-    cache: "no-store",
-    next:{
-      tags: ["anggota"]
-    }
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/anggota`, {
+    next: {
+      tags: ["anggota"],
+    },
   }).then((res) => res.json());
 
   const body = res.data;
@@ -28,7 +27,27 @@ export default async function TableUser() {
         </tr>
       </thead>
       <tbody className="divide-y dark:divide-slate-700">
-        {body.map(({ id, nama, alamat, nomor_telepon, email }, i) => (
+        {!body && (
+          <tr className="bg-white dark:bg-slate-800">
+            <td
+              colSpan={header.length + 1}
+              className="py-4 text-center whitespace-nowrap dark:text-white"
+            >
+              Tidak ada data
+            </td>
+          </tr>
+        )}
+        {body.length === 0 && (
+          <tr className="bg-white dark:bg-slate-800">
+            <td
+              colSpan={header.length + 1}
+              className="py-4 text-center whitespace-nowrap dark:text-white"
+            >
+              Tidak ada data
+            </td>
+          </tr>
+        )}
+        {body?.map(({ id, nama, alamat, nomor_telepon, email }, i) => (
           <tr
             key={i}
             className="bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-600"

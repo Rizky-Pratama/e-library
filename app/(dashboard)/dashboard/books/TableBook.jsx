@@ -11,10 +11,9 @@ const header = [
   "Tahun Terbit",
 ];
 export default async function TableBook() {
-  const res = await fetch("http://localhost:3000/api/buku", {
-    cache: "no-store",
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/buku`, {
     next: {
-      tags: ["buku"],
+      tags: ["buku", "peminjaman"],
     },
   }).then((res) => res.json());
 
@@ -35,6 +34,26 @@ export default async function TableBook() {
         </tr>
       </thead>
       <tbody className="divide-y dark:divide-slate-700">
+        {body.length === 0 && (
+          <tr className="bg-white dark:bg-slate-800">
+            <td
+              colSpan={header.length + 1}
+              className="py-4 text-center whitespace-nowrap dark:text-white"
+            >
+              Tidak ada data
+            </td>
+          </tr>
+        )}
+        {!body && (
+          <tr className="bg-white dark:bg-slate-800">
+            <td
+              colSpan={header.length + 1}
+              className="py-4 text-center whitespace-nowrap dark:text-white"
+            >
+              Tidak ada data
+            </td>
+          </tr>
+        )}
         {body?.map(
           (
             { id, judul, penulis, penerbit, stok, tahun_terbit, kategori },

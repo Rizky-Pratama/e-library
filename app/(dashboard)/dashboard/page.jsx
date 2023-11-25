@@ -5,9 +5,9 @@ import { Suspense } from "react";
 export default function Home() {
   return (
     <>
-    <Suspense fallback={<Loading/>}>
-      <Cards />
-    </Suspense>
+      <Suspense fallback={<Loading />}>
+        <Cards />
+      </Suspense>
     </>
   );
 }

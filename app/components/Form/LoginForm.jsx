@@ -13,10 +13,13 @@ const LoginForm = () => {
     e.preventDefault();
     setRes({ pending: true, messages: null });
     const data = new FormData(e.target);
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      body: data,
-    }).then((res) => res.json());
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
+      {
+        method: "POST",
+        body: data,
+      }
+    ).then((res) => res.json());
     const json = await res;
     setRes({ pending: false, messages: json.messages });
 

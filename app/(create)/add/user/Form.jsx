@@ -45,7 +45,7 @@ export const Form = () => {
       datas[pair[0]] = pair[1];
     }
 
-    const res = await fetch("/api/anggota", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/anggota`, {
       method: "POST",
       body: JSON.stringify(datas),
       headers: {
