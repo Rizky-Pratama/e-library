@@ -32,13 +32,16 @@ export const Form = ({ dataInput }) => {
       datas[pair[0]] = pair[1];
     }
 
-    const res = await fetch("/api/peminjaman", {
-      method: "POST",
-      body: JSON.stringify(datas),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/peminjaman`,
+      {
+        method: "POST",
+        body: JSON.stringify(datas),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const data = await res.json();
     console.log(data);
     setIsLoding(false);
@@ -60,7 +63,10 @@ export const Form = ({ dataInput }) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
           >
-            {dataInputBuku.map(({ id, judul, kategori }) => (
+            {!dataInputBuku && (
+              <option value="0">Tidak ada buku tersedia</option>
+            )}
+            {dataInputBuku?.map(({ id, judul, kategori }) => (
               <option
                 key={id}
                 value={id}
@@ -81,7 +87,10 @@ export const Form = ({ dataInput }) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             required
           >
-            {dataInputAnggota.map(({ id, nama }) => (
+            {!dataInputAnggota && (
+              <option value="0">Tidak ada anggota tersedia</option>
+            )}
+            {dataInputAnggota?.map(({ id, nama }) => (
               <option key={id} value={id}>{`${id}   ${nama}`}</option>
             ))}
           </select>

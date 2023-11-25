@@ -2,13 +2,19 @@ import { getAllNamaAnggota } from "@/app/utils/dbUtils/anggota";
 import { getUserFromCookie } from "@/app/utils/user";
 import { Form } from "./Form";
 
+export const dynamic = "auto";
+export const revalidate = false;
+export const fetchCache = "force-cache";
+
 const Page = async () => {
-  const dataInputBuku = await fetch("http://localhost:3000/api/buku", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
+  const dataInputBuku = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/buku`,
+    {
+      next: {
+        tags: ["buku"],
+      },
+    }
+  )
     .then((res) => res.json())
     .then((data) => {
       return data.data;

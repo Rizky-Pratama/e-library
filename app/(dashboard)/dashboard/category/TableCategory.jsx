@@ -4,11 +4,10 @@ import ButtonDelete from "@/app/components/Buttons/Button";
 const header = ["Id", "Nama"];
 
 export default async function TableCategory() {
-  const res = await fetch("http://localhost:3000/api/kategori", {
-    cache: "no-store",
-    next:{
-      tags: ["kategori"]
-    }
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/kategori`, {
+    next: {
+      tags: ["kategori"],
+    },
   }).then((res) => res.json());
 
   const body = res.data;
@@ -27,7 +26,27 @@ export default async function TableCategory() {
         </tr>
       </thead>
       <tbody className="divide-y dark:divide-slate-700">
-        {body.map(({ id, nama_kategori }, i) => (
+        {body.length === 0 && (
+          <tr className="bg-white dark:bg-slate-800">
+            <td
+              colSpan={header.length + 1}
+              className="py-4 text-center whitespace-nowrap dark:text-white"
+            >
+              Tidak ada data
+            </td>
+          </tr>
+        )}
+        {!body && (
+          <tr className="bg-white dark:bg-slate-800">
+            <td
+              colSpan={header.length + 1}
+              className="py-4 text-center whitespace-nowrap dark:text-white"
+            >
+              Tidak ada data
+            </td>
+          </tr>
+        )}
+        {body?.map(({ id, nama_kategori }, i) => (
           <tr
             key={i}
             className="bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-600"
