@@ -10,19 +10,34 @@ export const Form = ({ dataInput }) => {
   const [isLoding, setIsLoding] = useState(false);
   const router = useRouter();
   const { dataInputAnggota, dataInputBuku, dataInputStaff } = dataInput;
-  const notify = (message) => {
-    toast.success(`🦄 ${message}!`, {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      onClose: () => router.push("/dashboard/transaction"),
-    });
+
+  const notify = (type, message) => {
+    if (type === "success") {
+      toast.success(`🦄 ${message}!`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        onClose: () => router.push("/dashboard/transaction"),
+      });
+    } else if (type === "error") {
+      toast.error(`🦄 ${message}!`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
+
   async function create(e) {
     e.preventDefault();
     setIsLoding(true);
@@ -42,8 +57,14 @@ export const Form = ({ dataInput }) => {
       }
     );
     const data = await res.json();
+
+    if (data.success) {
+      notify("success", data.message);
+    } else {
+      notify("error", data.message);
+    }
+
     setIsLoding(false);
-    notify(data.message);
   }
   return (
     <form onSubmit={create} method="POST">
@@ -95,20 +116,19 @@ export const Form = ({ dataInput }) => {
         </div>
         <div>
           <label
-            htmlFor="company"
+            htmlFor="status"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Status*
           </label>
-          <select
-            id="countries"
+          <input
+            type="text"
+            id="status"
             name="status"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          >
-            <option value="Dipinjam">Dipinjam</option>
-            <option value="Dikembalikan">Dikembalikan</option>
-            <option value="Terlambat">Terlambat</option>
-          </select>
+            value={"Dipinjam"}
+            disabled
+          />
         </div>
         <div>
           <label
@@ -122,7 +142,7 @@ export const Form = ({ dataInput }) => {
             type="text"
             id="staf"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            defaultValue={dataInputStaff.username}
+            value={dataInputStaff.username}
             disabled
             required
           />
