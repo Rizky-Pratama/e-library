@@ -1,4 +1,6 @@
+import Badge from "@/app/components/Badge";
 import ButtonDelete from "@/app/components/Buttons/Button";
+import Link from "next/link";
 
 const header = [
   "Id",
@@ -34,7 +36,7 @@ export default async function TableTransaction() {
   };
 
   return (
-    <table className="w-full text-sm text-left text-slate-500 dark:text-slate-400 shadow-lg">
+    <table className="w-max overflow-x-auto text-sm text-left text-slate-500 dark:text-slate-400 shadow-lg">
       <thead className="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-700 dark:text-slate-400">
         <tr>
           {header.map((item, i) => (
@@ -87,11 +89,19 @@ export default async function TableTransaction() {
               className="bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-600"
             >
               <th className="p-4 w-4 font-medium text-slate-900 text-center whitespace-nowrap dark:text-white">
-                {i + 1}
+                {id}
               </th>
               <td className="px-6 py-4">{buku.judul}</td>
               <td className="px-6 py-4">{anggota.nama}</td>
-              <td className="px-6 py-4">{status}</td>
+              <td className="px-6 py-4">
+                {status === "Dipinjam" && (
+                  <Badge color="yellow">{status}</Badge>
+                )}
+                {status === "Dikembalikan" && (
+                  <Badge color="green">{status}</Badge>
+                )}
+                {status === "Terlambat" && <Badge color="red">{status}</Badge>}
+              </td>
               <td className="px-6 py-4">{catatan}</td>
               <td className="px-6 py-4">
                 {new Date(tanggal_peminjaman).toLocaleDateString(
@@ -107,12 +117,14 @@ export default async function TableTransaction() {
               </td>
               <td className="px-6 py-4">{staf.username}</td>
               <td className="px-6 py-4 space-x-2">
-                {/* <Link
-                  href={"edit/transaction/" + id}
-                  className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  Edit
-                </Link> */}
+                {status === "Dipinjam" && (
+                  <Link
+                    href={"transaction/p/" + id}
+                    className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                  >
+                    Kembalikan
+                  </Link>
+                )}
                 <ButtonDelete id={id} api="peminjaman">
                   Hapus
                 </ButtonDelete>
