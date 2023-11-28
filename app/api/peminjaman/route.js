@@ -33,6 +33,7 @@ export async function POST(request) {
     const data = await prisma.Peminjaman.create({
       data: {
         ...body,
+        status: "Dipinjam",
         bukuId: parseInt(body.bukuId),
         anggotaId: parseInt(body.anggotaId),
         stafId: parseInt(body.stafId),

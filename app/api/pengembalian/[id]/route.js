@@ -2,7 +2,7 @@ import prisma from "@/app/lib/prisma";
 import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
-export async function GET(request, { params }) {
+export async function PUT(request, { params }) {
   try {
     const { id } = params;
 
@@ -74,9 +74,46 @@ export async function GET(request, { params }) {
       const diffTime = Math.abs(new Date() - new Date(tanggal_pengembalian));
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       late = diffDays - 1;
+
+      await prisma.Peminjaman.update({
+        where: {
+          id: parseInt(id),
+        },
+        data: {
+          status: "Terlambat",
+        },
+      });
+
+      await prisma.Peminjaman.update({
+        where: {
+          id: parseInt(id),
+        },
+        data: {
+          catatan: `Terlambat ${late} hari`,
+        },
+      });
     } else {
+      await prisma.Peminjaman.update({
+        where: {
+          id: parseInt(id),
+        },
+        data: {
+          status: "Dikembalikan",
+        },
+      });
       late = 0;
     }
+
+    await prisma.Buku.update({
+        where: {
+            id: data.buku.id,
+        },
+        data: {
+            stok: {
+            increment: 1,
+            },
+        },
+        });
 
     const res = {
       ...data,
@@ -84,67 +121,13 @@ export async function GET(request, { params }) {
       late,
     };
 
-    return new NextResponse(
-      JSON.stringify({
-        success: true,
-        message: "Data berhasil ditemukan",
-        data: res,
-      }),
-      { status: 200 }
-    );
-  } catch (error) {
-    return new NextResponse(
-      JSON.stringify({ message: "Terjadi kesalahan " + error }),
-      { status: 500 }
-    );
-  }
-}
-
-export async function DELETE(request, { params }) {
-  try {
-    const { id } = params;
-
-    const checkId = await prisma.Peminjaman.findUnique({
-      where: {
-        id: parseInt(id),
-      },
-    });
-
-    if (!checkId) {
-      return new NextResponse(
-        JSON.stringify({
-          success: false,
-          message: "Data tidak ditemukan",
-        }),
-        { status: 404 }
-      );
-    }
-
-    const updateBuku = await prisma.Buku.update({
-      where: {
-        id: parseInt(checkId.bukuId),
-      },
-      data: {
-        stok: {
-          increment: 1,
-        },
-      },
-    });
-    updateBuku;
-
-    const data = await prisma.Peminjaman.delete({
-      where: {
-        id: parseInt(id),
-      },
-    });
-
     revalidateTag("peminjaman");
 
     return new NextResponse(
       JSON.stringify({
         success: true,
-        message: "Data berhasil dihapus",
-        data,
+        message: "Data berhasil diupdate",
+        data: res,
       }),
       { status: 200 }
     );
