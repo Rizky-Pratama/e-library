@@ -41,7 +41,7 @@ export default async function TableBook() {
         </tr>
       </thead>
       <tbody className="divide-y dark:divide-slate-700">
-        {body.length === 0 && (
+        {body?.length === 0 && (
           <tr className="bg-white dark:bg-slate-800">
             <td
               colSpan={header.length + 1}
