@@ -37,7 +37,7 @@ export default async function TableStaff() {
             </td>
           </tr>
         )}
-        {body.length === 0 && (
+        {body?.length === 0 && (
           <tr className="bg-white dark:bg-slate-800">
             <td
               colSpan={header.length + 1}

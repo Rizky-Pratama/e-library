@@ -3,13 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model Buku {
-  id           Int          @id @default(autoincrement())
+  id           Int     @id @default(autoincrement())
   judul        String
   penulis      String?
   kategoriId   Int
@@ -23,10 +22,10 @@ model Buku {
 }
 
 model Anggota {
-  id            Int          @id @default(autoincrement())
+  id            Int     @id @default(autoincrement())
   nama          String
   alamat        String?
-  nomor_telepon String?     @db.Char(14)
+  nomor_telepon String? @db.Char(14)
   email         String
   peminjaman    Peminjaman[]
 }
@@ -56,12 +55,12 @@ model Kategori {
 }
 
 model Staff {
-  id            Int          @id @default(autoincrement())
+  id            Int     @id @default(autoincrement())
   nama          String
-  username      String       @unique
+  username      String  @unique
   password      String
   email         String
-  nomor_telepon String?     @db.Char(14)
+  nomor_telepon String? @db.Char(14)
   peran         Peran
   Peminjaman    Peminjaman[]
 }
