@@ -2,13 +2,20 @@ import prisma from "@/app/lib/prisma";
 import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
-export async function GET(request) {
+export async function GET() {
   try {
     const datas = await prisma.Peminjaman.findMany({
       include: {
         buku: true,
         anggota: true,
         staf: true,
+      },
+      where: {
+        buku: {
+          id: {
+            not: 0,
+          },
+        },
       },
     });
 
