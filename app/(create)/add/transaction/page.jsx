@@ -1,5 +1,5 @@
-import { getAllNamaAnggota } from "@/app/utils/dbUtils/anggota";
-import { getUserFromCookie } from "@/app/utils/user";
+import { getAllNamaAnggota } from "@/utils/dbUtils/anggota";
+import { getUserFromCookie } from "@/utils/user";
 import { Form } from "./Form";
 
 // export const dynamic = "auto";

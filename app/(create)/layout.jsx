@@ -1,11 +1,7 @@
-import CreateLayout from "../components/Layout/CreateLayout";
+import CreateLayout from "../components/Layouts/CreateLayout";
 
 const Layout = ({ children }) => {
-  return (
-    <CreateLayout>
-      {children}
-    </CreateLayout>
-  );
+  return <CreateLayout>{children}</CreateLayout>;
 };
 
 export default Layout;

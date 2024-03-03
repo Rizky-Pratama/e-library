@@ -1,5 +1,5 @@
-import Badge from "@/app/components/Badge";
-import ButtonDelete from "@/app/components/Buttons/Button";
+import Badge from "@/components/Badge";
+import ButtonDelete from "@/components/Buttons/Button";
 import Link from "next/link";
 
 const header = [

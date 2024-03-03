@@ -1,5 +1,5 @@
 'use server';
-import prisma from "@/app/lib/prisma";
+import prisma from "app/lib/prisma";
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import { cookies } from "next/headers";
@@ -20,15 +20,15 @@ export async function POST(request) {
     if (!user)
       return new NextResponse(
         JSON.stringify({ messages: "Username tidak ditemukan" }),
-        { status: 404 }
+        { status: 401 }
       );
 
     const passwordMatches = await bcrypt.compare(password, user.password);
 
     if (!passwordMatches)
-      return new NextResponse(JSON.stringify({ messages: "Password salah" }), {
-        status: 401,
-      });
+      return new NextResponse(JSON.stringify({ messages: "Password salah" }),
+          { status: 401 }
+      );
 
     cookies().set("user", JSON.stringify({
       id: user.id,
