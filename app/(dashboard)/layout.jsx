@@ -1,8 +1,4 @@
-import DashboardLayout from "../components/layout/DashboardLayout";
-export const metadata = {
-  title: "U-Library | Dashboard",
-  description: "U-Library adalah aplikasi perpustakaan berbasis web.",
-};
+import DashboardLayout from "@/components/layout/DashboardLayout";
 
 export default function Layout({ children }) {
   return (
