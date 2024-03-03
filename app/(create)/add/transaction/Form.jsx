@@ -83,12 +83,12 @@ export const Form = ({ dataInput }) => {
             required
           >
             {!dataInputBuku && (
-              <option value="0">Tidak ada buku tersedia</option>
+              <option defaultValue="0">Tidak ada buku tersedia</option>
             )}
             {dataInputBuku?.map(({ id, judul, kategori }) => (
               <option
                 key={id}
-                value={id}
+                defaultValue={id}
               >{`${id}   ${judul} ${kategori.nama_kategori}`}</option>
             ))}
           </select>
@@ -107,10 +107,10 @@ export const Form = ({ dataInput }) => {
             required
           >
             {!dataInputAnggota && (
-              <option value="0">Tidak ada anggota tersedia</option>
+              <option defaultValue="0">Tidak ada anggota tersedia</option>
             )}
             {dataInputAnggota?.map(({ id, nama }) => (
-              <option key={id} value={id}>{`${id}   ${nama}`}</option>
+              <option key={id} defaultValue={id}>{`${id}   ${nama}`}</option>
             ))}
           </select>
         </div>
@@ -126,8 +126,9 @@ export const Form = ({ dataInput }) => {
             id="status"
             name="status"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            value={"Dipinjam"}
+            defaultValue={"Dipinjam"}
             disabled
+            readOnly
           />
         </div>
         <div>
@@ -137,14 +138,15 @@ export const Form = ({ dataInput }) => {
           >
             Nama Staff*
           </label>
-          <input name="stafId" value={dataInputStaff.id} hidden required />
+          <input name="stafId" defaultValue={dataInputStaff.id} hidden required />
           <input
             type="text"
             id="staf"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            value={dataInputStaff.username}
+            defaultValue={dataInputStaff.username}
             disabled
             required
+            readOnly
           />
         </div>
         <div>
