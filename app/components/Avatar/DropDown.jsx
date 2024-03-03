@@ -1,5 +1,4 @@
 import { getUserFromCookie } from "@/app/utils/user";
-import Link from "next/link";
 import Avatar from "./Avatar";
 import SignOutButton from "../Buttons/SignOutButton";
 
