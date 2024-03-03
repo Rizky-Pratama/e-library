@@ -11,13 +11,14 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex gap-2">
             <Image
-              className="object-cover"
+              className="aspect-square w-auto h-auto"
               src={"/logo.png"}
               width={55}
               height={40}
               alt="Loogo"
+              priority
             />
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-center">
               <span className="text-lg md:text-xl lg:text-2xl font-semibold dark:text-white">
                 U-library
               </span>

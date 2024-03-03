@@ -29,12 +29,12 @@ const NavbarAdd = () => {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <header className="bg-white mb-3  py-4 px-4 md:px-2 mx-auto max-w-3xl rounded">
+    <header className="bg-white dark:bg-slate-800 mb-3  py-4 px-4 md:px-2 mx-auto max-w-3xl rounded">
       <nav>
         <div className="flex">
           <button
             onClick={() => router.back()}
-            className="flex items-center gap-1 text-slate-600"
+            className="flex items-center gap-1 text-slate-600 dark:text-slate-200"
           >
             <MdArrowBackIosNew />
             <span>Back</span>
