@@ -6,7 +6,7 @@ export const metadata = {
   description: "U-Library adalah aplikasi perpustakaan berbasis web.",
 };
 
-export default function Layout({ children }) {
+export default function DashboardLayout({ children }) {
   return (
     <>
       <Navbar />
