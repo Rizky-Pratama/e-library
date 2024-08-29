@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="History">
+    <option name="requestHistoryStates">
+      <list>
+        <requestHistoryState>
+          <option name="dateTime" value="1724903488093" />
+          <option name="id" value="ac81bc51-24df-4223-844a-9cb7e55a9bdb" />
+          <option name="request">
+            <requestState>
+              <option name="id" value="a0fcc9d9-057c-422b-94fe-6c09f6d18a5a" />
+              <option name="method" value="GET" />
+              <option name="name" value="Draft" />
+              <option name="url" value="http://localhost:3000/api/staff" />
+            </requestState>
+          </option>
+          <option name="response">
+            <responseState>
+              <option name="bodyBytesBase64" value="eyJzdWNjZXNzIjp0cnVlLCJtZXNzYWdlIjoieWV5eXl5IiwiZGF0YSI6W3siaWQiOjEsIm5hbWEiOiJNdWhhbW1hZCBSaXpreSBQcmF0YW1hIiwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiJDJhJDEwJGMzWnMucS5WZVRXRUFQTks0bktYeC5Odk9xemFqTUJYeXBCR0UxN3h2Mi9nN21aMGx1NGx5IiwiZW1haWwiOiJobmF1cmE4OUBnbWFpbC5jb20iLCJub21vcl90ZWxlcG9uIjoiMDg5NjA5NzYzMzUyIiwicGVyYW4iOiJBZG1pbiJ9XX0=" />
+              <option name="bodyString" value="{&quot;success&quot;:true,&quot;message&quot;:&quot;yeyyyy&quot;,&quot;data&quot;:[{&quot;id&quot;:1,&quot;nama&quot;:&quot;Muhammad Rizky Pratama&quot;,&quot;username&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;$2a$10$c3Zs.q.VeTWEAPNK4nKXx.NvOqzajMBXypBGE17xv2/g7mZ0lu4ly&quot;,&quot;email&quot;:&quot;hnaura89@gmail.com&quot;,&quot;nomor_telepon&quot;:&quot;089609763352&quot;,&quot;peran&quot;:&quot;Admin&quot;}]}" />
+              <option name="code" value="200" />
+              <option name="contentType" value="text/plain; charset=UTF-8" />
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="vary" />
+                    <option name="value" value="RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Url" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="content-type" />
+                    <option name="value" value="text/plain;charset=UTF-8" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Date" />
+                    <option name="value" value="Thu, 29 Aug 2024 03:51:28 GMT" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Connection" />
+                    <option name="value" value="keep-alive" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Keep-Alive" />
+                    <option name="value" value="timeout=5" />
+                  </headerState>
+                  <headerState>
+                    <option name="key" value="Transfer-Encoding" />
+                    <option name="value" value="chunked" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="ac81bc51-24df-4223-844a-9cb7e55a9bdb" />
+              <option name="message" value="OK" />
+              <option name="prettyResponseType" value="TEXT" />
+              <option name="rawBodyString" value="{&quot;success&quot;:true,&quot;message&quot;:&quot;yeyyyy&quot;,&quot;data&quot;:[{&quot;id&quot;:1,&quot;nama&quot;:&quot;Muhammad Rizky Pratama&quot;,&quot;username&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;$2a$10$c3Zs.q.VeTWEAPNK4nKXx.NvOqzajMBXypBGE17xv2/g7mZ0lu4ly&quot;,&quot;email&quot;:&quot;hnaura89@gmail.com&quot;,&quot;nomor_telepon&quot;:&quot;089609763352&quot;,&quot;peran&quot;:&quot;Admin&quot;}]}" />
+              <option name="size" value="254" />
+              <option name="time" value="1985" />
+            </responseState>
+          </option>
+          <option name="workspaceId" value="drafts" />
+        </requestHistoryState>
+      </list>
+    </option>
+  </component>
+</project>
