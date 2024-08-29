@@ -1,5 +1,5 @@
-import Cards from "@/app/components/Cards/Cards";
-import Loading from "@/app/components/Loading";
+import Cards from "@/components/Cards/Cards";
+import Loading from "@/components/Loading";
 import { Suspense } from "react";
 
 export default function Home() {

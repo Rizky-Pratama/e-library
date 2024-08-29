@@ -1,4 +1,4 @@
-import ButtonDelete from "@/app/components/Buttons/Button";
+import ButtonDelete from "@/components/Buttons/Button";
 // import Link from "next/link";
 
 const header = [

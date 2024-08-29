@@ -1,5 +1,5 @@
 "use client";
-import Badge from "@/app/components/Badge";
+import Badge from "@/components/Badge";
 
 const Detail = ({datas}) => {
   const { buku, anggota, staf, tanggal_peminjaman, tanggal_pengembalian, id, isLate, late } = datas;

@@ -1,6 +1,6 @@
 
-import prisma from "@/app/lib/prisma";
-import { getAllCategory } from "@/app/utils/dbUtils/category";
+import prisma from "@/lib/prisma";
+import { getAllCategory } from "@/utils/dbUtils/category";
 import { revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 

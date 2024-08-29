@@ -1,9 +1,9 @@
 import { LuBookMarked, LuBookmarkPlus } from "react-icons/lu";
 import { TbUserStar } from "react-icons/tb";
 import Card from "./Card";
-import { getCountBuku } from "@/app/utils/dbUtils/buku";
-import { getCountAnggota } from "@/app/utils/dbUtils/anggota";
-import { getCountPeminjaman } from "@/app/utils/dbUtils/peminjaman";
+import { getCountBuku } from "@/utils/dbUtils/buku";
+import { getCountAnggota } from "@/utils/dbUtils/anggota";
+import { getCountPeminjaman } from "@/utils/dbUtils/peminjaman";
 
 const Cards = async () => {
   const countBuku = await getCountBuku();

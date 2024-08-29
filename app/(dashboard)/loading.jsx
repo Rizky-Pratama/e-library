@@ -1,4 +1,4 @@
-import Loading from "@/app/components/Loading";
+import Loading from "@/components/Loading";
 
 const Index = () => {
   return <Loading />;

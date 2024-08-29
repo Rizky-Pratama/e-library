@@ -3,7 +3,7 @@ import { BiSearch } from "react-icons/bi";
 import { FiPlus } from "react-icons/fi";
 import TableTransaction from "./TableTransaction";
 import { Suspense } from "react";
-import Loading from "@/app/components/Loading";
+import Loading from "@/components/Loading";
 
 // export const dynamic = "auto";
 // export const revalidate = false;
